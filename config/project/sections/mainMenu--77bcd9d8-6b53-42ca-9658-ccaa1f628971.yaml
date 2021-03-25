@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: mainMenu
+name: 'Main Menu'
+propagationMethod: all
+siteSettings:
+  93483d07-7e49-4f0c-b034-ea97d8cbd27b: # Jack Gets Funky
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 2
+  uid: 6335ca7f-c10b-41dc-b5a3-744327f3d14b
+type: structure

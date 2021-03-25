@@ -1,0 +1,21 @@
+body {
+
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.columns {
+	&.three
+	{
+		
+	}
+}
+
+.__home__ {
+	.container {
+		max-width: none;
+	}
+}

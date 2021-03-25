@@ -1,0 +1,20 @@
+contentColumnType: string
+fieldGroup: f588c8c7-8f76-4e28-9789-311abf81aeda # Menu
+handle: menuEntry
+instructions: ''
+name: 'Menu Entry'
+searchable: false
+settings:
+  allowSelfRelations: false
+  limit: '1'
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: false
+  source: null
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

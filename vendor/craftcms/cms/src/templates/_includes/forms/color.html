@@ -1,0 +1,45 @@
+{% import "_includes/forms" as forms -%}
+
+{% set id = id ?? "color#{random()}" -%}
+{% set containerId = containerId ?? id~'-container' -%}
+{% set name = name ?? null -%}
+{% set value = value ?? null -%}
+{% set small = small ?? false -%}
+{% set autofocus = (autofocus ?? false) and not craft.app.request.isMobileBrowser(true) -%}
+{% set disabled = disabled ?? false -%}
+
+{% set containerAttributes = {
+    id: containerId,
+    class: ['flex', 'color-container'],
+}|merge(containerAttributes ?? [], recursive=true) %}
+
+{%- if block('attr') is defined %}
+    {%- set containerAttributes = containerAttributes|merge(('<div ' ~ block('attr') ~ '>')|parseAttr, recursive=true) %}
+{% endif %}
+
+{% spaceless %}
+    {% tag 'div' with containerAttributes %}
+        {% tag 'div' with {
+            class: ['color', 'static', small ? 'small']|filter,
+        } %}
+            {{ tag('div', {
+                class: ['color-preview'],
+                style: {'background-color': value}|filter,
+            }) }}
+        {% endtag %}
+        {{ forms.text({
+            id: id,
+            instructionsId: instructionsId ?? false,
+            name: name,
+            value: value,
+            size: 10,
+            class: 'color-input',
+            autofocus: autofocus,
+            disabled: disabled
+        }) }}
+    {% endtag %}
+{% endspaceless -%}
+
+{% js %}
+    new Craft.ColorInput('#{{ containerId|namespaceInputId }}');
+{% endjs -%}

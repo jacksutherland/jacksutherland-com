@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: pages
+name: Pages
+propagationMethod: all
+siteSettings:
+  93483d07-7e49-4f0c-b034-ea97d8cbd27b: # Jack Gets Funky
+    enabledByDefault: true
+    hasUrls: true
+    template: pages/_entry
+    uriFormat: '{% if parent.uri != ''__home__'' %}{parent.uri}/{% endif %}{slug}'
+structure:
+  maxLevels: null
+  uid: 20761ca4-9a3c-414e-be2a-30dea88c65dc
+type: structure

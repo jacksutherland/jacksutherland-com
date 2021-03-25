@@ -1,0 +1,24 @@
+{% set containerAttributes = containerAttributes ?? [] %}
+
+{%- if block('attr') is defined %}
+    {%- set containerAttributes = containerAttributes|merge(('<div ' ~ block('attr') ~ '>')|parseAttr, recursive=true) %}
+{% endif %}
+
+{% set inputAttributes = {
+    type: 'radio',
+    id: id ?? false,
+    class: (class ?? [])|explodeClass,
+    name: name ?? false,
+    value: value ?? '1',
+    checked: checked ?? false,
+    autofocus: (autofocus ?? false) and not craft.app.request.isMobileBrowser(true),
+    disabled: disabled ?? false,
+    aria: {
+        describedby: instructionsId ?? false,
+    },
+}|merge(inputAttributes ?? [], recursive=true) %}
+
+{% tag 'label' with containerAttributes %}
+    {{ tag('input', inputAttributes) }}
+    {% if label is defined %}{{ label|raw }}{% endif %}
+{% endtag %}

@@ -1,0 +1,14 @@
+contentColumnType: string(255)
+fieldGroup: f588c8c7-8f76-4e28-9789-311abf81aeda # Menu
+handle: menuUrl
+instructions: ''
+name: 'Menu URL'
+searchable: false
+settings:
+  maxLength: '255'
+  placeholder: null
+  types:
+    - url
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Url
