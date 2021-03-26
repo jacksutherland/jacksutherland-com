@@ -36,4 +36,6 @@ return [
     'disallowRobots' => !$isProd,
 
     'privateTemplateTrigger' => '',
+
+    'maxUploadFileSize' => 2000000000
 ];

@@ -1,4 +1,31 @@
-<div class="container">
-	<div class="columns three">
+<div class="container full-height">
+	<h1>{{ entry.header }}</h1>
+	<div class="row">
+		{% for column in entry.columns %}
+			{% if column.externalUrl | trim | length %}
+				{% set openingElement = "a href=#{ column.externalUrl } target='_blank'" %}
+				{% set closingElement = "a" %}
+			{% else %}
+				{% set openingElement = "div" %}
+				{% set closingElement = "div" %}
+			{% endif %}
+			<{{ openingElement }} class="col-{{ entry.columns.count }} m-row-{{ entry.columns.count }} {{ cycle(['beige', 'white'], loop.index0) }}-bkg">
+				{% if column.video.count %}
+					<video loop autoplay muted>
+				   		<source src="{{ column.video.one().url }}" type="video/mp4">
+				   	</video>
+				{% endif %}
+				<div class="content">
+					{% if column.columnTitle | trim | length %}
+						<h2>{{ column.columnTitle }}</h2>
+					{% endif %}
+					{% if column.icon.count %}
+						{% if column.icon.one().extension == 'svg' %}
+						  {{ svg(column.icon.one()) }}
+						{% endif %}
+					{% endif %}
+				</div>
+			</{{ closingElement }}>
+		{% endfor %}
 	</div>
 </div>
