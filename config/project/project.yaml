@@ -1,4 +1,4 @@
-dateModified: 1616725257
+dateModified: 1617583421
 email:
   fromEmail: jack@jacksutherland.com
   fromName: 'Jack Gets Funky'
@@ -12,7 +12,7 @@ system:
   edition: solo
   live: true
   name: 'Jack Gets Funky'
-  schemaVersion: 3.6.6
+  schemaVersion: 3.6.7
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false
